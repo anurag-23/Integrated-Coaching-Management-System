@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">ICMS</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="consist_verification">Consist Verification</string>
+    <string name="drawer_open">Open drawer</string>
+    <string name="drawer_close">Close drawer</string>
+    <string name="log_out">Log Out</string>
+    <string name="arrival">Arrival:</string>
+    <string name="departure">Departure:</string>
+    <string name="trains">Trains</string>
+    <string name="serial_no">Serial No:</string>
+    <string name="coach_type">Coach Type:</string>
+    <string name="coach_no">Coach No:</string>
+    <string name="dispute">Dispute:</string>
+    <string name="owning_railway">Owning Railway:</string>
+    <string name="from">From:</string>
+    <string name="to">To:</string>
+    <string name="prs_id">PRS ID:</string>
+    <string name="remark">Remark:</string>
+    <string name="reverse">Reverse</string>
+    <string name="verify">Verify</string>
+</resources>
