@@ -10,7 +10,8 @@ public class Train {
     private String destination;
     private String arrTime;
     private String depTime;
-    private String date;
+    private String arrDate;
+    private String depDate;
 
     public int getTrainNo() {
         return trainNo;
@@ -60,11 +61,19 @@ public class Train {
         this.depTime = depTime;
     }
 
-    public String getDate() {
-        return date;
+    public String getArrDate() {
+        return arrDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setArrDate(String arrDate) {
+        this.arrDate = arrDate;
+    }
+
+    public String getDepDate() {
+        return depDate;
+    }
+
+    public void setDepDate(String depDate) {
+        this.depDate = depDate;
     }
 }

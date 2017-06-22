@@ -9,4 +9,5 @@
     <color name="black">#000000</color>
     <color name="nav_header_bg">#d33225</color>
     <color name="red_dark">#b71c1c</color>
+    <color name="dark_grey_text_colour">#404040</color>
 </resources>

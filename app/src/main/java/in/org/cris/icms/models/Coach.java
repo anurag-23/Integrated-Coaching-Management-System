@@ -4,7 +4,7 @@ package in.org.cris.icms.models;
  * Created by anurag on 20/6/17.
  */
 public class Coach {
-    private String serialNo;
+    private int serialNo;
     private String ownRly;
     private String coachType;
     private String coachNo;
@@ -13,11 +13,11 @@ public class Coach {
     private String prsID;
     private String remark;
 
-    public String getSerialNo() {
+    public int getSerialNo() {
         return serialNo;
     }
 
-    public void setSerialNo(String serialNo) {
+    public void setSerialNo(int serialNo) {
         this.serialNo = serialNo;
     }
 

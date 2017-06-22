@@ -7,8 +7,8 @@
     <string name="drawer_open">Open drawer</string>
     <string name="drawer_close">Close drawer</string>
     <string name="log_out">Log Out</string>
-    <string name="arrival">Arrival:</string>
-    <string name="departure">Departure:</string>
+    <string name="arrival">Arrival</string>
+    <string name="departure">Departure</string>
     <string name="trains">Trains</string>
     <string name="serial_no">Serial No:</string>
     <string name="coach_type">Coach Type:</string>
@@ -21,4 +21,23 @@
     <string name="remark">Remark:</string>
     <string name="reverse">Reverse</string>
     <string name="verify">Verify</string>
+    <string name="line_type">Line Type:</string>
+    <string name="line">Line:</string>
+    <string name="end">End:</string>
+    <string name="capacity">Capacity:</string>
+    <string name="hyphen">-</string>
+    <string name="coaches_on_line">Coaches on line:</string>
+    <string name="available_space">Available Space:</string>
+    <string name="confirm_arrival">Confirm</string>
+    <string name="none">None</string>
+    <string name="specify_details">Please specify all line details!</string>
+    <string name="empty_username">Username must not be empty!</string>
+    <string name="empty_password">Password must not be empty!</string>
+    <string name="invalid_username">The username entered is invalid!</string>
+    <string name="incorrect_password">The password entered is incorrect!</string>
+    <string name="login_successful">Login successful!</string>
+    <string name="no_sufficient_space">Insufficient space! Please select another line.</string>
+    <string name="d">D:</string>
+    <string name="dep">Dep:</string>
+    <string name="arr">Arr:</string>
 </resources>

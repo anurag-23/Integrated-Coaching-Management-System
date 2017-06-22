@@ -1,6 +1,7 @@
 package in.org.cris.icms.activities;
 
 import android.content.DialogInterface;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,11 +16,12 @@ import android.widget.Button;
 import java.util.ArrayList;
 import java.util.List;
 
+import in.org.cris.icms.fragments.ConfirmArrivalDialogFragment;
 import in.org.cris.icms.R;
 import in.org.cris.icms.adapters.ConsistAdapter;
 import in.org.cris.icms.models.Coach;
 
-public class ConsistActivity extends AppCompatActivity {
+public class ConsistActivity extends AppCompatActivity implements ConfirmArrivalDialogFragment.ConfirmArrivalInterface{
     private List<Coach> coachList = new ArrayList<>();
     private ConsistAdapter adapter;
 
@@ -44,13 +46,13 @@ public class ConsistActivity extends AppCompatActivity {
 
         for (int i=0; i<15; i++){
             Coach coach = new Coach();
-            coach.setSerialNo("12589");
-            coach.setCoachNo(i+1+"");
+            coach.setSerialNo(i+1);
+            coach.setCoachNo(12580+i+"");
             coach.setCoachType("HA");
             coach.setFrom(getIntent().getStringExtra("source"));
             coach.setTo(getIntent().getStringExtra("destination"));
             coach.setOwnRly("SER");
-            coach.setRemark("-");
+            coach.setRemark("No remark");
             coach.setPrsID("12345");
             coachList.add(coach);
             adapter.notifyDataSetChanged();
@@ -59,18 +61,9 @@ public class ConsistActivity extends AppCompatActivity {
         verifyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new AlertDialog.Builder(ConsistActivity.this).setMessage("Consist verification successful!").setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                }).setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialogInterface) {
-                        finish();
-                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-                    }
-                }).show();
+                ConfirmArrivalDialogFragment dialog = ConfirmArrivalDialogFragment.createInstance();
+                dialog.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+                dialog.show(getSupportFragmentManager(), getString(R.string.confirm_arrival));
             }
         });
     }
@@ -89,7 +82,10 @@ public class ConsistActivity extends AppCompatActivity {
                 List<Coach> tempList = new ArrayList<>();
                 tempList.addAll(coachList);
                 coachList.clear();
-                for (int i = tempList.size()-1; i>=0; i--) coachList.add(tempList.get(i));
+                for (int i = tempList.size()-1; i>=0; i--){
+                    tempList.get(i).setSerialNo(tempList.size()-i);
+                    coachList.add(tempList.get(i));
+                }
                 adapter.notifyDataSetChanged();
         }
         return super.onOptionsItemSelected(item);
@@ -99,5 +95,27 @@ public class ConsistActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
+    @Override
+    public void confirmArrival() {
+        new AlertDialog.Builder(ConsistActivity.this).setMessage("Consist verification successful!").setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialogInterface) {
+                        finish();
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                    }
+        }).show();
+    }
+
+    @Override
+    public int getCoachCount() {
+        if (coachList != null) return coachList.size();
+        else return 0;
     }
 }

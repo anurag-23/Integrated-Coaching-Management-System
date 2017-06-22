@@ -37,11 +37,10 @@ public class TrainsAdapter extends RecyclerView.Adapter<TrainsAdapter.TrainsView
         Train train = trainsList.get(position);
         holder.trainNo.setText(train.getTrainNo()+"");
         holder.trainName.setText(train.getName());
-        holder.date.setText(train.getDate());
+        holder.arr.setText(train.getArrDate()+" "+train.getArrTime());
         holder.source.setText(train.getSource());
         holder.destination.setText(train.getDestination());
-        holder.arrTime.setText(train.getArrTime());
-        holder.depTime.setText(train.getDepTime());
+        holder.dep.setText(train.getDepDate()+" "+train.getDepTime());
     }
 
     @Override
@@ -52,22 +51,20 @@ public class TrainsAdapter extends RecyclerView.Adapter<TrainsAdapter.TrainsView
     class TrainsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView trainNo;
         TextView trainName;
-        TextView date;
+        TextView arr;
+        TextView dep;
         TextView source;
         TextView destination;
-        TextView arrTime;
-        TextView depTime;
 
         public TrainsViewHolder(View itemView) {
             super(itemView);
 
             trainNo = (TextView)itemView.findViewById(R.id.train_no_text_view);
             trainName = (TextView)itemView.findViewById(R.id.train_name_text_view);
-            date = (TextView)itemView.findViewById(R.id.date_text_view);
+            arr = (TextView)itemView.findViewById(R.id.arr_text_view);
+            dep = (TextView)itemView.findViewById(R.id.dept_text_view);
             source = (TextView)itemView.findViewById(R.id.source_text_view);
             destination = (TextView)itemView.findViewById(R.id.destination_text_view);
-            arrTime = (TextView)itemView.findViewById(R.id.arrival_time_text_view);
-            depTime = (TextView)itemView.findViewById(R.id.departure_text_view);
             itemView.setOnClickListener(this);
         }
 
@@ -77,7 +74,8 @@ public class TrainsAdapter extends RecyclerView.Adapter<TrainsAdapter.TrainsView
             Train train = trainsList.get(getLayoutPosition());
             intent.putExtra("trainNo", train.getTrainNo());
             intent.putExtra("trainName", train.getName());
-            intent.putExtra("date", train.getDate());
+            intent.putExtra("depDate", train.getDepDate());
+            intent.putExtra("arrDate", train.getArrDate());
             intent.putExtra("source", train.getSource());
             intent.putExtra("destination", train.getDestination());
             intent.putExtra("arrTime", train.getArrTime());

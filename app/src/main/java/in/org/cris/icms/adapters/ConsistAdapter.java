@@ -37,10 +37,8 @@ public class ConsistAdapter extends RecyclerView.Adapter<ConsistAdapter.ConsistV
     @Override
     public void onBindViewHolder(ConsistViewHolder holder, int position) {
         Coach coach = coachList.get(position);
-        holder.serialNo.setText(coach.getSerialNo());
-        holder.coachNo.setText(coach.getCoachNo());
-        holder.coachType.setText(coach.getCoachType());
-        holder.ownRly.setText(coach.getOwnRly());
+        holder.serialNo.setText(coach.getSerialNo()+"");
+        holder.coachInfo.setText(coach.getOwnRly()+" - "+coach.getCoachType()+" - "+coach.getCoachNo());
         holder.from.setText(coach.getFrom());
         holder.to.setText(coach.getTo());
         holder.remark.setText(coach.getRemark());
@@ -54,9 +52,7 @@ public class ConsistAdapter extends RecyclerView.Adapter<ConsistAdapter.ConsistV
 
     class ConsistViewHolder extends RecyclerView.ViewHolder {
         TextView serialNo;
-        TextView ownRly;
-        TextView coachType;
-        TextView coachNo;
+        TextView coachInfo;
         TextView from;
         TextView to;
         TextView prsID;
@@ -67,9 +63,7 @@ public class ConsistAdapter extends RecyclerView.Adapter<ConsistAdapter.ConsistV
             super(itemView);
 
             serialNo = (TextView)itemView.findViewById(R.id.serial_no_text_view);
-            ownRly = (TextView)itemView.findViewById(R.id.own_rly_text_view);
-            coachType = (TextView)itemView.findViewById(R.id.coach_type_text_view);
-            coachNo = (TextView)itemView.findViewById(R.id.coach_no_text_view);
+            coachInfo = (TextView)itemView.findViewById(R.id.coach_info_text_view);
             from = (TextView)itemView.findViewById(R.id.from_text_view);
             to = (TextView)itemView.findViewById(R.id.to_text_view);
             prsID = (TextView)itemView.findViewById(R.id.prs_id_text_view);

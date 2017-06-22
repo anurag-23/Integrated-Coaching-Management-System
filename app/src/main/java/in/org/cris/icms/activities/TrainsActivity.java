@@ -21,8 +21,9 @@ public class TrainsActivity extends AppCompatActivity {
     private String[] trainNames = {"PNP NDLS MEMU", "NDLS GZB EMU", "NDLS PALWAL EMU", "NDLS KKDE MEMU", "PDY NDLS EXPRESS", "PURUSHOTTAM EXP", "MAHABODHI EXP", "NDLS KSV EMU", "GZB NDLS EMU", "NDLS SNP EMU", "JAMMU RAJDHANI", "SHRAMJEEVI EXP", "NANDA DEVI EXP", "BIHAR S KRANTI", "BHOPAL SHTBDI"};
     private String[] sources = {"PNP", "NDLS", "NDLS", "NDLS", "PDY", "PURI", "GAYA", "NDLS", "GZB", "NDLS", "JAT", "RGD", "DDN", "DBG", "NDLS"};
     private String[] destinations = {"NDLS", "GZB", "PWL", "KKDE", "NDLS", "NDLS", "NDLS", "KSV", "NDLS", "SNP", "NDLS", "NDLS", "NDLS", "NDLS", "HBJ"};
-    private String[] arrTimes = {"00:05", "--", "--", "--", "03:20", "04:30", "04:40", "--", "04:55", "--", "05:00", "05:10", "05:20", "05:35", "--"};
-    private String[] deptTimes = {"--", "00:10", "00:15", "01:20", "--", "--", "--", "04:45", "--", "05:00", "--", "--", "--", "--", "06:00"};
+    private String[] arrTimes = {"00:05", "03:20", "04:30", "04:40", "04:55", "05:00", "05:10", "05:20", "05:35", "00:10", "00:15", "01:20", "04:45", "05:00", "06:00"};
+    private String[] deptTimes = {"06:00", "05:00", "04:45", "01:20", "00:15", "00:10", "05:35", "05:20", "05:10", "05:00", "04:55", "04:40", "04:30", "03:20", "00:05"};
+
     List<Train> trainsList = new ArrayList<>();
 
     @Override
@@ -50,7 +51,8 @@ public class TrainsActivity extends AppCompatActivity {
             train.setDestination(destinations[i]);
             train.setArrTime(arrTimes[i]);
             train.setDepTime(deptTimes[i]);
-            train.setDate("20/06/2017");
+            train.setArrDate("21st June");
+            train.setDepDate("20th June");
             trainsList.add(train);
             adapter.notifyDataSetChanged();
         }
