@@ -150,9 +150,9 @@ public class ConfirmArrivalDialogFragment extends DialogFragment {
             lineTypeStrings.add(lt.getType());
         }
 
-        lineTypeSpinner.setAdapter(new ArrayAdapter<String>(getContext(), R.layout.item_custom_spinner, lineTypeStrings));
-        endSpinner.setAdapter(new ArrayAdapter<String>(getContext(), R.layout.item_custom_spinner, ends));
-        lineSpinner.setAdapter(new ArrayAdapter<String>(getContext(), R.layout.item_custom_spinner, lineStrings));
+        lineTypeSpinner.setAdapter(new ArrayAdapter<>(getContext(), R.layout.item_custom_spinner, lineTypeStrings));
+        endSpinner.setAdapter(new ArrayAdapter<>(getContext(), R.layout.item_custom_spinner, ends));
+        lineSpinner.setAdapter(new ArrayAdapter<>(getContext(), R.layout.item_custom_spinner, lineStrings));
 
         lineTypeSpinner.setSelection(0);
         endSpinner.setSelection(0);

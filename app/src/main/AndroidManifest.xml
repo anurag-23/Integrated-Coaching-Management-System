@@ -23,8 +23,15 @@
         <activity
             android:name=".activities.TrainsActivity"
             android:parentActivityName=".activities.MainActivity" />
-        <activity android:name=".activities.ConsistActivity"
-            android:parentActivityName=".activities.TrainsActivity"/>
+        <activity
+            android:name=".activities.ConsistActivity"
+            android:parentActivityName=".activities.TrainsActivity" />
+        <activity
+            android:name=".activities.RakeMovementActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity android:name=".activities.SendRakeActivity"
+            android:parentActivityName=".activities.RakeMovementActivity"/>
+        <activity android:name=".activities.ReceiveRakeActivity"></activity>
     </application>
 
 </manifest>

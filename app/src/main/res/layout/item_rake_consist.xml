@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:layout_weight="0"
+        android:id="@+id/rake_coach_serial_no_text_view"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        tools:text="Srl No"
+        android:textSize="13sp"
+        android:textColor="@color/dark_grey_text_colour"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_grey_bg_2"/>
+
+    <TextView
+        android:layout_weight="1"
+        android:id="@+id/rake_coach_info_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-medium"
+        tools:text="Own Rly"
+        />
+
+</LinearLayout>

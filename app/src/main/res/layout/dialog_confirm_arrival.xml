@@ -5,184 +5,190 @@
     android:paddingTop="24dp"
     android:paddingBottom="8dp">
 
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:orientation="vertical"
-       android:paddingLeft="24dp"
-       android:paddingRight="24dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="horizontal"
-           android:gravity="center_vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
 
-           <TextView
-               android:layout_weight="1"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/line_type"
-               android:textSize="16sp"
-               android:fontFamily="sans-serif-medium"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
-           <Spinner
-               android:id="@+id/line_type_spinner"
-               android:layout_weight="0"
-               android:gravity="end|right"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/line_type"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif-medium"/>
 
-       </LinearLayout>
+                <Spinner
+                    android:id="@+id/line_type_spinner"
+                    android:layout_weight="0"
+                    android:gravity="end|right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="horizontal"
-           android:gravity="center_vertical">
+            </LinearLayout>
 
-           <TextView
-               android:layout_weight="1"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/line"
-               android:textSize="16sp"
-               android:fontFamily="sans-serif-medium"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
-           <Spinner
-               android:id="@+id/line_spinner"
-               android:layout_weight="0"
-               android:gravity="end|right"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/line"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif-medium"/>
 
-       </LinearLayout>
+                <Spinner
+                    android:id="@+id/line_spinner"
+                    android:layout_weight="0"
+                    android:gravity="end|right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="horizontal"
-           android:gravity="center_vertical">
+            </LinearLayout>
 
-           <TextView
-               android:layout_weight="1"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/end"
-               android:textSize="16sp"
-               android:fontFamily="sans-serif-medium"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
-           <Spinner
-               android:id="@+id/end_spinner"
-               android:layout_weight="0"
-               android:gravity="end|right"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/end"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif-medium"/>
 
-       </LinearLayout>
+                <Spinner
+                    android:id="@+id/end_spinner"
+                    android:layout_weight="0"
+                    android:gravity="end|right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-       <View
-           android:layout_width="match_parent"
-           android:layout_height="1dp"
-           android:layout_marginTop="16dp"
-           android:layout_marginBottom="16dp"
-           android:background="@color/colorPrimary"/>
+            </LinearLayout>
 
-       <LinearLayout
-           android:id="@+id/line_info"
-           android:visibility="gone"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="vertical">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/colorPrimary"/>
 
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/line_info"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-               <TextView
-                   android:layout_weight="1"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:textSize="15sp"
-                   android:fontFamily="sans-serif-medium"
-                   android:text="@string/capacity"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-               <TextView
-                   android:id="@+id/capacity_text_view"
-                   android:layout_weight="0"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:textSize="15sp"
-                   android:text="@string/hyphen"/>
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/capacity"/>
 
-           </LinearLayout>
+                    <TextView
+                        android:id="@+id/capacity_text_view"
+                        android:layout_weight="0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:text="@string/hyphen"/>
 
-           <LinearLayout
-               android:layout_marginTop="16dp"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:orientation="horizontal">
+                </LinearLayout>
 
-               <TextView
-                   android:layout_weight="1"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:textSize="15sp"
-                   android:fontFamily="sans-serif-medium"
-                   android:text="@string/coaches_on_line"/>
+                <LinearLayout
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-               <TextView
-                   android:id="@+id/coaches_on_line_text_view"
-                   android:layout_weight="0"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:textSize="15sp"
-                   android:text="@string/hyphen"/>
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/coaches_on_line"/>
 
-           </LinearLayout>
+                    <TextView
+                        android:id="@+id/coaches_on_line_text_view"
+                        android:layout_weight="0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:text="@string/hyphen"/>
 
-           <LinearLayout
-               android:layout_marginTop="16dp"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:orientation="horizontal"
-               android:layout_marginBottom="12dp">
+                </LinearLayout>
 
-               <TextView
-                   android:layout_weight="1"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:textSize="15sp"
-                   android:fontFamily="sans-serif-medium"
-                   android:text="@string/available_space"/>
+                <LinearLayout
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
 
-               <TextView
-                   android:id="@+id/available_space_text_view"
-                   android:layout_weight="0"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:textSize="15sp"
-                   android:text="@string/hyphen"/>
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/available_space"/>
 
-           </LinearLayout>
+                    <TextView
+                        android:id="@+id/available_space_text_view"
+                        android:layout_weight="0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:text="@string/hyphen"/>
 
-       </LinearLayout>
+                </LinearLayout>
 
-       <TextView
-           android:id="@+id/error_message_text_view"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:textSize="15sp"
-           android:visibility="gone"
-           android:textColor="@color/colorPrimary"
-           android:text="@string/specify_details"/>
+            </LinearLayout>
 
-   </LinearLayout>
+            <TextView
+                android:id="@+id/error_message_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:visibility="gone"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/specify_details"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="end|right">
 
         <TextView

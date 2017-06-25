@@ -31,10 +31,21 @@ public class MainActivity extends AppCompatActivity {
         drawerToggle.syncState();
 
         CardView consistVerification = (CardView)findViewById(R.id.consist_verification);
+        CardView rakeMovement = (CardView)findViewById(R.id.rake_movement);
+
         consistVerification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, TrainsActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+
+        rakeMovement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RakeMovementActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }

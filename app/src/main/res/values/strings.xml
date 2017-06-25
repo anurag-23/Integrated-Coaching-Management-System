@@ -40,4 +40,26 @@
     <string name="d">D:</string>
     <string name="dep">Dep:</string>
     <string name="arr">Arr:</string>
+    <string name="rake_movement">Rake Movement to Yard</string>
+    <string name="sick_marking">Sick Marking</string>
+    <string name="shop_marking">Shop Marking</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="send">Send</string>
+    <string name="receive">Receive</string>
+    <string name="move_to">Move To:</string>
+    <string name="station">Station</string>
+    <string name="yard">Yard</string>
+    <string name="select_station">Select Station:</string>
+    <string name="movement_time">Movement Time:</string>
+    <string name="movement_date">Movement Date:</string>
+    <string name="consist_details">Consist Details:</string>
+    <string name="send_rake_to_yard">Send Rake to Yard</string>
+    <string name="confirm">Confirm</string>
+    <string name="show_consist_details">Show Consist Details</string>
+    <string name="hide_consist_details">Hide Consist Details</string>
+    <string name="select_yard">Select Yard:</string>
+    <string name="please_select_station">Please select station or yard!</string>
+    <string name="rake_movement_successful">Rake movement successfully done!</string>
 </resources>
