@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
         CardView consistVerification = (CardView)findViewById(R.id.consist_verification);
         CardView rakeMovement = (CardView)findViewById(R.id.rake_movement);
+        CardView sickMarking = (CardView)findViewById(R.id.sick_marking);
+        CardView shopMarking = (CardView)findViewById(R.id.shop_marking);
 
         consistVerification.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +48,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, RakeMovementActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+
+        sickMarking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SickMarkingActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+
+        shopMarking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ShopMarkingActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }

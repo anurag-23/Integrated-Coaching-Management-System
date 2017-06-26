@@ -2,7 +2,7 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textSize="15sp"
+    android:textSize="@dimen/typography_subheading"
     android:paddingLeft="24dp"
     android:paddingRight="24dp"
     android:paddingTop="12dp"

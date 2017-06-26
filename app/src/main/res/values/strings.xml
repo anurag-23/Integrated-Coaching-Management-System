@@ -43,8 +43,6 @@
     <string name="rake_movement">Rake Movement to Yard</string>
     <string name="sick_marking">Sick Marking</string>
     <string name="shop_marking">Shop Marking</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="send">Send</string>
     <string name="receive">Receive</string>
@@ -62,4 +60,20 @@
     <string name="select_yard">Select Yard:</string>
     <string name="please_select_station">Please select station or yard!</string>
     <string name="rake_movement_successful">Rake movement successfully done!</string>
+    <string name="coach_status">Coach Status:</string>
+    <string name="train_details">Train Details:</string>
+    <string name="poh_due_date">POH Due Date:</string>
+    <string name="last_event_time">Last Event Time:</string>
+    <string name="sick_department">Sick Department:</string>
+    <string name="marking_date">Marking Date:</string>
+    <string name="sick_mark_successful">Sick marking successful!</string>
+    <string name="fill_required_details">Please fill in all required details!</string>
+    <string name="base_depot">Base Depot:</string>
+    <string name="built_year">Built Year:</string>
+    <string name="poh_year">POH Year:</string>
+    <string name="poh_month">POH Month:</string>
+    <string name="coaches">Coaches:</string>
+    <string name="shop_reason">Shop Reason:</string>
+    <string name="shop">Shop:</string>
+    <string name="shop_mark_successful">Shop marking successful!</string>
 </resources>

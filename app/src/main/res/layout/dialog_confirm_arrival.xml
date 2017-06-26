@@ -27,7 +27,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/line_type"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/typography_title"
                     android:fontFamily="sans-serif-medium"/>
 
                 <Spinner
@@ -50,7 +50,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/line"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/typography_title"
                     android:fontFamily="sans-serif-medium"/>
 
                 <Spinner
@@ -73,7 +73,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/end"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/typography_title"
                     android:fontFamily="sans-serif-medium"/>
 
                 <Spinner
@@ -195,7 +195,7 @@
             android:id="@+id/cancel_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="@dimen/typography_body"
             android:fontFamily="sans-serif-medium"
             android:textColor="@color/colorAccent"
             android:text="@android:string/cancel"
@@ -206,7 +206,7 @@
             android:id="@+id/confirm_arrival_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="@dimen/typography_body"
             android:text="@string/confirm_arrival"
             android:textAllCaps="true"
             android:padding="16dp"

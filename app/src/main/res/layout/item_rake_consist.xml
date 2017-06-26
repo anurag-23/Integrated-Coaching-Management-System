@@ -4,7 +4,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="8dp"
+    android:paddingBottom="16dp"
     android:gravity="center_vertical">
 
     <TextView
@@ -28,6 +28,8 @@
         android:textSize="15sp"
         android:textColor="@color/white"
         android:fontFamily="sans-serif-medium"
+        android:layout_marginRight="4dp"
+        android:layout_marginEnd="4dp"
         tools:text="Own Rly"
         />
 

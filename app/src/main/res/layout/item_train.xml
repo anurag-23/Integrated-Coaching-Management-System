@@ -27,7 +27,7 @@
                 tools:text="Train No"
                 android:paddingLeft="6dp"
                 android:paddingRight="6dp"
-                android:textSize="14sp"
+                android:textSize="@dimen/typography_body"
                 android:textColor="@color/dark_grey_text_colour"
                 android:layout_marginRight="8dp"
                 android:layout_marginEnd="8dp"
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 tools:text="Train Name"
                 android:fontFamily="sans-serif-medium"
-                android:textSize="16sp"
+                android:textSize="@dimen/typography_title"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:textColor="@color/white"/>
@@ -64,7 +64,7 @@
                 android:paddingRight="6dp"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:textSize="15sp"
+                android:textSize="@dimen/typography_subheading"
                 android:background="@drawable/rounded_hollow_bg"/>
 
             <View
@@ -83,7 +83,7 @@
                 android:paddingRight="6dp"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:textSize="15sp"
+                android:textSize="@dimen/typography_subheading"
                 android:background="@drawable/rounded_hollow_bg"/>
 
         </LinearLayout>
@@ -101,7 +101,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/departure"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/typography_body"
                     android:fontFamily="sans-serif-medium"
                     android:textColor="@color/white"
                     android:layout_marginRight="2dp"
@@ -114,7 +114,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/arrival"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/typography_body"
                     android:gravity="end|right"
                     android:fontFamily="sans-serif-medium"
                     android:textColor="@color/white"/>
@@ -139,7 +139,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="22/06/2017"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/typography_body"
                     android:textAllCaps="true"
                     android:layout_marginRight="2dp"
                     android:layout_marginEnd="2dp"/>
@@ -154,7 +154,7 @@
                     android:layout_height="wrap_content"
                     tools:text="22/06/2017"
                     android:gravity="end|right"
-                    android:textSize="14sp"/>
+                    android:textSize="@dimen/typography_body"/>
             </TableRow>
 
         </TableLayout>

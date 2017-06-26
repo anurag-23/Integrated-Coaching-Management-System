@@ -70,6 +70,8 @@ public class SendRakeActivity extends AppCompatActivity {
         final TextView movementDate = (TextView)findViewById(R.id.movement_date_text_view);
         final TextView movementTime = (TextView)findViewById(R.id.movement_time_text_view);
         final TextView selectStationYard = (TextView)findViewById(R.id.select_station_yard_text_view);
+        TextView station = (TextView)findViewById(R.id.station_text_view);
+        TextView yard = (TextView)findViewById(R.id.yard_text_view);
 
         final ImageView consistHideShow = (ImageView)findViewById(R.id.consist_hide_show_image_view);
 
@@ -105,7 +107,7 @@ public class SendRakeActivity extends AppCompatActivity {
         date.setText(getIntent().getStringExtra("date"));
 
         SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-        SimpleDateFormat sdf2 = new SimpleDateFormat("hh:mm", Locale.US);
+        SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm", Locale.US);
 
         Date currentDate = new Date();
         movementDate.setText(sdf1.format(currentDate));
@@ -151,6 +153,20 @@ public class SendRakeActivity extends AppCompatActivity {
         populateSpinner(1);
         stationYardSpinner.setAdapter(new ArrayAdapter<>(getApplicationContext(), R.layout.item_custom_spinner, stationYardList));
         stationYardSpinner.setSelection(0);
+
+        station.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                stationRadioButton.setChecked(true);
+            }
+        });
+
+        yard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                yardRadioButton.setChecked(true);
+            }
+        });
 
         stationRadioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

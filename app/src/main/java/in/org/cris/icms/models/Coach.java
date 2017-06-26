@@ -12,6 +12,10 @@ public class Coach {
     private String to;
     private String prsID;
     private String remark;
+    private String baseDepot;
+    private String builtYear;
+    private String pohYear;
+    private String pohMonth;
 
     public int getSerialNo() {
         return serialNo;
@@ -75,5 +79,37 @@ public class Coach {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public String getBaseDepot() {
+        return baseDepot;
+    }
+
+    public void setBaseDepot(String baseDepot) {
+        this.baseDepot = baseDepot;
+    }
+
+    public String getBuiltYear() {
+        return builtYear;
+    }
+
+    public void setBuiltYear(String builtYear) {
+        this.builtYear = builtYear;
+    }
+
+    public String getPohYear() {
+        return pohYear;
+    }
+
+    public void setPohYear(String pohYear) {
+        this.pohYear = pohYear;
+    }
+
+    public String getPohMonth() {
+        return pohMonth;
+    }
+
+    public void setPohMonth(String pohMonth) {
+        this.pohMonth = pohMonth;
     }
 }

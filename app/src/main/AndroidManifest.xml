@@ -29,9 +29,15 @@
         <activity
             android:name=".activities.RakeMovementActivity"
             android:parentActivityName=".activities.MainActivity" />
-        <activity android:name=".activities.SendRakeActivity"
-            android:parentActivityName=".activities.RakeMovementActivity"/>
-        <activity android:name=".activities.ReceiveRakeActivity"></activity>
+        <activity
+            android:name=".activities.SendRakeActivity"
+            android:parentActivityName=".activities.RakeMovementActivity" />
+        <activity android:name=".activities.ReceiveRakeActivity" />
+        <activity
+            android:name=".activities.SickMarkingActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity android:name=".activities.ShopMarkingActivity"
+            android:parentActivityName=".activities.MainActivity"/>
     </application>
 
 </manifest>

@@ -107,8 +107,7 @@ public class ConsistActivity extends AppCompatActivity implements ConfirmArrival
                 }).setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialogInterface) {
-                        finish();
-                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                        onBackPressed();
                     }
         }).show();
     }
