@@ -2,8 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="24dp"
-    android:paddingBottom="8dp">
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -12,168 +14,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp">
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/line_type"
-                    android:textSize="@dimen/typography_title"
-                    android:fontFamily="sans-serif-medium"/>
-
-                <Spinner
-                    android:id="@+id/line_type_spinner"
-                    android:layout_weight="0"
-                    android:gravity="end|right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/line"
-                    android:textSize="@dimen/typography_title"
-                    android:fontFamily="sans-serif-medium"/>
-
-                <Spinner
-                    android:id="@+id/line_spinner"
-                    android:layout_weight="0"
-                    android:gravity="end|right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/end"
-                    android:textSize="@dimen/typography_title"
-                    android:fontFamily="sans-serif-medium"/>
-
-                <Spinner
-                    android:id="@+id/end_spinner"
-                    android:layout_weight="0"
-                    android:gravity="end|right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="@color/colorPrimary"/>
-
-            <LinearLayout
-                android:id="@+id/line_info"
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_weight="1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/capacity"/>
-
-                    <TextView
-                        android:id="@+id/capacity_text_view"
-                        android:layout_weight="0"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:text="@string/hyphen"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="16dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_weight="1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/coaches_on_line"/>
-
-                    <TextView
-                        android:id="@+id/coaches_on_line_text_view"
-                        android:layout_weight="0"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:text="@string/hyphen"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="16dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="12dp">
-
-                    <TextView
-                        android:layout_weight="1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/available_space"/>
-
-                    <TextView
-                        android:id="@+id/available_space_text_view"
-                        android:layout_weight="0"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:text="@string/hyphen"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
+            <include layout="@layout/layout_receive_rake"/>
 
             <TextView
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginBottom="4dp"
                 android:id="@+id/error_message_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -200,7 +48,10 @@
             android:textColor="@color/colorAccent"
             android:text="@android:string/cancel"
             android:textAllCaps="true"
-            android:padding="16dp"/>
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="16dp"/>
 
         <TextView
             android:id="@+id/confirm_arrival_text_view"
@@ -209,7 +60,10 @@
             android:textSize="@dimen/typography_body"
             android:text="@string/confirm_arrival"
             android:textAllCaps="true"
-            android:padding="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="16dp"
             android:fontFamily="sans-serif-medium"
             android:textColor="@color/colorAccent"/>
 

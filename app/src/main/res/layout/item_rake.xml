@@ -6,8 +6,8 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="7dp"
     android:layout_marginRight="7dp"
-    android:layout_marginTop="4.5dp"
-    android:layout_marginBottom="4.5dp">
+    android:layout_marginTop="7dp"
+    android:layout_marginBottom="7dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,8 +22,8 @@
             android:gravity="center_vertical"
             android:paddingLeft="9dp"
             android:paddingRight="9dp"
-            android:paddingTop="21dp"
-            android:paddingBottom="21dp">
+            android:paddingTop="10dp"
+            android:paddingBottom="8dp">
 
             <TextView
                 android:layout_weight="0"
@@ -58,8 +58,71 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right|end"
-                tools:text="Date"
+                tools:text="Start Date"
                 android:textSize="@dimen/typography_body"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:drawable/divider_horizontal_dark"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="9dp"
+            android:paddingRight="9dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/typography_body"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/status"
+                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:id="@+id/rake_status_text_view"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/typography_body"
+                tools:text="Status"
+                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/typography_body"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/last_event"
+                android:gravity="end|right"
+                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:id="@+id/rake_last_event_text_view"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/typography_body"
+                tools:text="Last Event"
+                android:gravity="end|right"/>
 
         </LinearLayout>
 

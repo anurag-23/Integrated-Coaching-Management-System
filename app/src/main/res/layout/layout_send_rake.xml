@@ -1,0 +1,212 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="12dp"
+    android:paddingBottom="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <ImageView
+            android:layout_weight="0"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_move_to"
+            android:tint="@color/white"
+            android:alpha="0.54"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/move_to"
+            android:textSize="@dimen/typography_subheading"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"/>
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/station_radio_button"
+            android:layout_weight="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/station_text_view"
+            android:layout_weight="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/station"
+            android:textSize="@dimen/typography_subheading"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"/>
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:id="@+id/yard_radio_button"
+            android:layout_weight="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/yard_text_view"
+            android:layout_weight="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/yard"
+            android:textSize="@dimen/typography_subheading" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/select_station_yard_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_weight="0"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:tint="@color/white"
+            android:alpha="0.54"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_station"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/select_station_yard_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_station"
+            android:textSize="@dimen/typography_subheading"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"/>
+
+        <Spinner
+            android:layout_weight="0"
+            android:gravity="end|right"
+            android:id="@+id/station_yard_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/movement_date_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_weight="0"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_date"
+            android:tint="@color/white"
+            android:alpha="0.54"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movement_date"
+            android:textSize="@dimen/typography_subheading"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/movement_date_text_view"
+            android:layout_weight="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/typography_subheading"
+            tools:text="Current Date"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"/>
+
+        <ImageView
+            android:layout_weight="0"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_edit"
+            android:tint="@color/white"
+            android:alpha="0.54"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/movement_time_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <ImageView
+            android:layout_weight="0"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_time"
+            android:tint="@color/white"
+            android:alpha="0.54"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movement_time"
+            android:textSize="@dimen/typography_subheading"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/movement_time_text_view"
+            android:layout_weight="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/typography_subheading"
+            tools:text="Current Time"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"/>
+
+        <ImageView
+            android:layout_weight="0"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_edit"
+            android:tint="@color/white"
+            android:alpha="0.54"/>
+
+    </LinearLayout>
+
+</LinearLayout>

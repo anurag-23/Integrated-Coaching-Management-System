@@ -41,7 +41,9 @@ public class RakeAdapter extends RecyclerView.Adapter<RakeAdapter.RakeViewHolder
         Rake rake = rakeList.get(position);
         holder.trainNo.setText(rake.getTrainNo()+"");
         holder.trainName.setText(rake.getTrainName());
-        holder.date.setText(rake.getDate());
+        holder.startDate.setText(rake.getStartDate());
+        holder.status.setText(rake.getStatus());
+        holder.lastEventTime.setText(rake.getLastEventTime());
     }
 
     @Override
@@ -52,13 +54,17 @@ public class RakeAdapter extends RecyclerView.Adapter<RakeAdapter.RakeViewHolder
     class RakeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView trainNo;
         TextView trainName;
-        TextView date;
+        TextView startDate;
+        TextView status;
+        TextView lastEventTime;
 
         public RakeViewHolder(View itemView) {
             super(itemView);
             trainNo = (TextView)itemView.findViewById(R.id.rake_train_no_text_view);
             trainName = (TextView)itemView.findViewById(R.id.rake_train_name_text_view);
-            date = (TextView)itemView.findViewById(R.id.rake_date_text_view);
+            startDate = (TextView)itemView.findViewById(R.id.rake_date_text_view);
+            status = (TextView)itemView.findViewById(R.id.rake_status_text_view);
+            lastEventTime = (TextView)itemView.findViewById(R.id.rake_last_event_text_view);
             itemView.setOnClickListener(this);
         }
 
@@ -73,7 +79,7 @@ public class RakeAdapter extends RecyclerView.Adapter<RakeAdapter.RakeViewHolder
             }
             intent.putExtra("trainNo", rakeList.get(getLayoutPosition()).getTrainNo());
             intent.putExtra("trainName", rakeList.get(getLayoutPosition()).getTrainName());
-            intent.putExtra("date", rakeList.get(getLayoutPosition()).getDate());
+            intent.putExtra("startDate", rakeList.get(getLayoutPosition()).getStartDate());
             activity.startActivity(intent);
             activity.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }

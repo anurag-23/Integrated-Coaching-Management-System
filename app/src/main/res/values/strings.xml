@@ -63,7 +63,7 @@
     <string name="coach_status">Coach Status:</string>
     <string name="train_details">Train Details:</string>
     <string name="poh_due_date">POH Due Date:</string>
-    <string name="last_event_time">Last Event Time:</string>
+    <string name="last_event">Last Event:</string>
     <string name="sick_department">Sick Department:</string>
     <string name="marking_date">Marking Date:</string>
     <string name="sick_mark_successful">Sick marking successful!</string>
@@ -76,4 +76,6 @@
     <string name="shop_reason">Shop Reason:</string>
     <string name="shop">Shop:</string>
     <string name="shop_mark_successful">Shop marking successful!</string>
+    <string name="status">Status:</string>
+    <string name="receive_rake">Receive Rake</string>
 </resources>

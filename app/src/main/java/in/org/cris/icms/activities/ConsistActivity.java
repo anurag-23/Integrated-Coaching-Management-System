@@ -1,10 +1,10 @@
 package in.org.cris.icms.activities;
 
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -16,9 +16,9 @@ import android.widget.Button;
 import java.util.ArrayList;
 import java.util.List;
 
-import in.org.cris.icms.fragments.ConfirmArrivalDialogFragment;
 import in.org.cris.icms.R;
 import in.org.cris.icms.adapters.ConsistAdapter;
+import in.org.cris.icms.fragments.ConfirmArrivalDialogFragment;
 import in.org.cris.icms.models.Coach;
 
 public class ConsistActivity extends AppCompatActivity implements ConfirmArrivalDialogFragment.ConfirmArrivalInterface{
@@ -64,6 +64,7 @@ public class ConsistActivity extends AppCompatActivity implements ConfirmArrival
                 ConfirmArrivalDialogFragment dialog = ConfirmArrivalDialogFragment.createInstance();
                 dialog.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
                 dialog.show(getSupportFragmentManager(), getString(R.string.confirm_arrival));
+
             }
         });
     }

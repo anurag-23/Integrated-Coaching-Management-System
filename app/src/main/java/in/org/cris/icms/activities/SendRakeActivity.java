@@ -3,15 +3,14 @@ package in.org.cris.icms.activities;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -27,7 +26,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Formatter;
 import java.util.List;
 import java.util.Locale;
 
@@ -47,9 +45,12 @@ public class SendRakeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_send_rake);
+        setContentView(R.layout.activity_send_receive_rake);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.send_rake_toolbar);
+        View sendRakeDetails = findViewById(R.id.send_rake_details_layout);
+        sendRakeDetails.setVisibility(View.VISIBLE);
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.send_receive_rake_toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null){
             getSupportActionBar().setTitle(R.string.send_rake_to_yard);
@@ -104,7 +105,7 @@ public class SendRakeActivity extends AppCompatActivity {
 
         trainNo.setText(getIntent().getIntExtra("trainNo", 0)+"");
         trainName.setText(getIntent().getStringExtra("trainName"));
-        date.setText(getIntent().getStringExtra("date"));
+        date.setText(getIntent().getStringExtra("startDate"));
 
         SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
         SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm", Locale.US);

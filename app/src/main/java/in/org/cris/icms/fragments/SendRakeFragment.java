@@ -15,7 +15,6 @@ import java.util.List;
 import in.org.cris.icms.R;
 import in.org.cris.icms.adapters.RakeAdapter;
 import in.org.cris.icms.models.Rake;
-import in.org.cris.icms.models.Train;
 
 public class SendRakeFragment extends Fragment {
     private List<Rake> rakeList = new ArrayList<>();
@@ -38,7 +37,9 @@ public class SendRakeFragment extends Fragment {
             Rake rake = new Rake();
             rake.setTrainNo(trainNumbers[i]);
             rake.setTrainName(trainNames[i]);
-            rake.setDate("23/06/2017");
+            rake.setStartDate("23/06/2017");
+            rake.setStatus("WASHING");
+            rake.setLastEventTime("02/07/2017 19:00");
             rakeList.add(rake);
         }
 

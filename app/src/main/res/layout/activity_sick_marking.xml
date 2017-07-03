@@ -233,7 +233,7 @@
                             android:textSize="@dimen/typography_subheading"
                             android:textColor="@color/white"
                             android:fontFamily="sans-serif-medium"
-                            android:text="@string/last_event_time"/>
+                            android:text="@string/last_event"/>
 
                         <TextView
                             android:id="@+id/last_event_time_text_view"

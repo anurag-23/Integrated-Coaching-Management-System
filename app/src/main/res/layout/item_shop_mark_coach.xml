@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/base_depot"
                     android:fontFamily="sans-serif-medium"
-                    android:textSize="@dimen/typography_subheading"
+                    android:textSize="@dimen/typography_body"
                     android:layout_marginRight="8dp"
                     android:layout_marginEnd="8dp"/>
 
@@ -70,7 +70,7 @@
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/typography_subheading"
+                    android:textSize="@dimen/typography_body"
                     android:layout_marginRight="16dp"
                     android:layout_marginEnd="16dp"
                     tools:text="Base Depot"/>
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/built_year"
                     android:fontFamily="sans-serif-medium"
-                    android:textSize="@dimen/typography_subheading"
+                    android:textSize="@dimen/typography_body"
                     android:layout_marginRight="8dp"
                     android:layout_marginEnd="8dp"/>
 
@@ -91,7 +91,7 @@
                     android:gravity="right|end"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/typography_subheading"
+                    android:textSize="@dimen/typography_body"
                     tools:text="Built Year"/>
 
             </TableRow>
@@ -105,7 +105,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/poh_year"
                     android:fontFamily="sans-serif-medium"
-                    android:textSize="@dimen/typography_subheading"
+                    android:textSize="@dimen/typography_body"
                     android:layout_marginRight="8dp"
                     android:layout_marginEnd="8dp"/>
 
@@ -115,7 +115,7 @@
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/typography_subheading"
+                    android:textSize="@dimen/typography_body"
                     android:layout_marginRight="16dp"
                     android:layout_marginEnd="16dp"
                     tools:text="POH Year"/>
@@ -126,7 +126,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/poh_month"
                     android:fontFamily="sans-serif-medium"
-                    android:textSize="@dimen/typography_subheading"
+                    android:textSize="@dimen/typography_body"
                     android:layout_marginRight="8dp"
                     android:layout_marginEnd="8dp"/>
 
@@ -136,7 +136,7 @@
                     android:gravity="right|end"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/typography_subheading"
+                    android:textSize="@dimen/typography_body"
                     tools:text="POH Month"/>
 
             </TableRow>

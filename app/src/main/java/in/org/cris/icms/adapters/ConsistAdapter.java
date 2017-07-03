@@ -1,7 +1,6 @@
 package in.org.cris.icms.adapters;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import in.org.cris.icms.R;
-import in.org.cris.icms.activities.ConsistActivity;
 import in.org.cris.icms.models.Coach;
-import in.org.cris.icms.models.Train;
 
 /**
  * Created by anurag on 20/6/17.

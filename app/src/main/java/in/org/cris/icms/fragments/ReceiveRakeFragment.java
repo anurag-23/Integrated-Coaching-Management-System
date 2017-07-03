@@ -38,7 +38,9 @@ public class ReceiveRakeFragment extends Fragment {
             Rake rake = new Rake();
             rake.setTrainNo(trainNumbers[i]);
             rake.setTrainName(trainNames[i]);
-            rake.setDate("23/06/2017");
+            rake.setStartDate("23/06/2017");
+            rake.setStatus("WASHING");
+            rake.setLastEventTime("02/07/2017 19:00");
             rakeList.add(rake);
         }
 

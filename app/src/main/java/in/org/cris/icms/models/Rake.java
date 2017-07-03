@@ -6,7 +6,9 @@ package in.org.cris.icms.models;
 public class Rake {
     private int trainNo;
     private String trainName;
-    private String date;
+    private String startDate;
+    private String status;
+    private String lastEventTime;
 
     public int getTrainNo() {
         return trainNo;
@@ -24,11 +26,27 @@ public class Rake {
         this.trainName = trainName;
     }
 
-    public String getDate() {
-        return date;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getLastEventTime() {
+        return lastEventTime;
+    }
+
+    public void setLastEventTime(String lastEventTime) {
+        this.lastEventTime = lastEventTime;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
