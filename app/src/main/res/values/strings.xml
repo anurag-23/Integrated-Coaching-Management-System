@@ -31,8 +31,9 @@
     <string name="confirm_arrival">Confirm</string>
     <string name="none">None</string>
     <string name="specify_details">Please specify all line details!</string>
-    <string name="empty_username">Username must not be empty!</string>
-    <string name="empty_password">Password must not be empty!</string>
+    <string name="empty_username">Please enter a username to log in.</string>
+    <string name="empty_password">Please enter a password to log in.</string>
+    <string name="empty_username_password">Please enter a username and password to log in.</string>
     <string name="invalid_username">The username entered is invalid!</string>
     <string name="incorrect_password">The password entered is incorrect!</string>
     <string name="login_successful">Login successful!</string>
@@ -78,4 +79,11 @@
     <string name="shop_mark_successful">Shop marking successful!</string>
     <string name="status">Status:</string>
     <string name="receive_rake">Receive Rake</string>
+    <string name="login_failed">Login failed! Please check your internet connection or try again later.</string>
+    <string name="attempting_login">Attempting login... please wait!</string>
+    <string name="shared_preferences">SharedPreferences</string>
+    <string name="logged_in">loggedIn</string>
+    <string name="session_id">sessionID</string>
+    <string name="check_internet_connection">No Connection! Please check your internet connection or try again later.</string>
+    <string name="log_out_confirmation">Are you sure you want to log out?</string>
 </resources>
