@@ -140,12 +140,10 @@
                     android:layout_height="wrap_content"
                     tools:text="22/06/2017"
                     android:textSize="@dimen/typography_body"
-                    android:textAllCaps="true"
                     android:layout_marginRight="2dp"
                     android:layout_marginEnd="2dp"/>
 
                 <TextView
-                    android:textAllCaps="true"
                     android:layout_marginLeft="2dp"
                     android:layout_marginStart="2dp"
                     android:id="@+id/arr_text_view"

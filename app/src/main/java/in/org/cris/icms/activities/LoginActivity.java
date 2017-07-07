@@ -31,6 +31,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     private static final int OVERWRITE_CODE = 2;
+    private static final int FAILURE_CODE = 0;
     private EditText userNameEditText;
     private EditText passwordEditText;
     private Button loginButton;
@@ -56,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
             checkLogin();
         }
 
+        //Login button hidden in case of background login
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -150,19 +152,22 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                                 else{
                                     //Show failure/error message in case of manual login
-                                    //Log out unauthorized user in case of background login
+                                    //Log out unauthorized user in case of background login failure
+                                    //Show retry message in case of background login error
                                     if (loginRequest.isNewSession()) showAlertMessage(null, loginResponse.getMessage());
-                                    else{
+                                    else if (loginResponse.getResponseCode() == FAILURE_CODE){
                                         childLayout.setVisibility(View.VISIBLE);
                                         spEditor.putBoolean(getString(R.string.logged_in), false);
                                         spEditor.remove(getString(R.string.service_id));
                                         spEditor.remove(getString(R.string.username));
                                         spEditor.remove(getString(R.string.password));
                                     }
+                                    else showRetryAlertMessage(null, loginResponse.getMessage(), true);
                                 }
                             }
                             spEditor.apply();
                         }else{
+                            //Show error message in case of null response
                             if (loginRequest.isNewSession())
                                 showAlertMessage(null, getString(R.string.server_error));
                             else
@@ -176,9 +181,11 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (t.getClass().getSimpleName().equals(ConnectException.class.getSimpleName())
                                 || t.getClass().getSimpleName().equals(SocketTimeoutException.class.getSimpleName())) {
+                            //Failure due to no connection
                             errorTitle = getString(R.string.cannot_connect);
                             errorMessage= getString(R.string.connection_failed);
                         }else {
+                            //Failure due to other errors
                             errorTitle = null;
                             errorMessage = getString(R.string.server_error);
                         }

@@ -25,6 +25,7 @@ import in.org.cris.icms.R;
 import in.org.cris.icms.models.logout.LogoutRequest;
 import in.org.cris.icms.models.logout.LogoutResponse;
 import in.org.cris.icms.network.LoginClient;
+import in.org.cris.icms.network.NetworkUtils;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         final DrawerLayout drawerLayout = (DrawerLayout)findViewById(R.id.main_drawer_layout);
         NavigationView navView = (NavigationView)findViewById(R.id.main_nav_view);
 
+        //Set up Navigation Drawer
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         CardView sickMarking = (CardView)findViewById(R.id.sick_marking);
         CardView shopMarking = (CardView)findViewById(R.id.shop_marking);
 
+        //Set menu item onClickListeners
         consistVerification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,12 +93,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Set Navigation Drawer Item Selected Listener
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 drawerLayout.closeDrawers();
                 switch(item.getItemId()){
-                    case R.id.nav_view_log_out: logOut(); break;
+                    case R.id.nav_view_log_out: if (NetworkUtils.isInternetConnected(MainActivity.this))
+                                                    logOut();
+                                                else
+                                                    showNoConnectionMessage();
+                                                break;
                 }
                 return true;
             }
@@ -113,13 +121,16 @@ public class MainActivity extends AppCompatActivity {
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
 
+        //Required parameters for log out request: username, serviceID
         final LogoutRequest logoutRequest = new LogoutRequest();
         logoutRequest.setUsername(sp.getString(getString(R.string.username), ""));
         logoutRequest.setServiceID(sp.getString(getString(R.string.service_id), ""));
 
+        //Log out call at a delay of 1s
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                //Calls logout service using Retrofit
                 Call<LogoutResponse> call = LoginClient.getLoginInterface().logOut(logoutRequest);
                 call.enqueue(new Callback<LogoutResponse>() {
                     @Override
@@ -129,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
 
                         if (response != null && (logoutResponse = response.body()) != null){
                             if (logoutResponse.isSuccess() || logoutResponse.getResponseCode() == FAILURE_CODE){
+                                //Log out if successful
                                 //Logging out in case of failure, as the user is unauthorized
                                 SharedPreferences.Editor spEditor = sp.edit();
                                 spEditor.putBoolean(getString(R.string.logged_in), false);
@@ -141,9 +153,11 @@ public class MainActivity extends AppCompatActivity {
                                 overridePendingTransition(R.anim.scale_up_fade_in, R.anim.scale_down_fade_out);
                                 finish();
                             }else{
+                                //Show message in case of error
                                 showAlertMessage(null, logoutResponse.getMessage());
                             }
                         }else{
+                            //Show error message in case of null response
                             showAlertMessage(null, getString(R.string.server_error));
                         }
                     }
@@ -154,9 +168,11 @@ public class MainActivity extends AppCompatActivity {
 
                         if (t.getClass().getSimpleName().equals(ConnectException.class.getSimpleName())
                                 || t.getClass().getSimpleName().equals(SocketTimeoutException.class.getSimpleName())) {
+                            //Failure do to no connection
                             errorTitle = getString(R.string.cannot_connect);
                             errorMessage= getString(R.string.connection_failed);
                         }else {
+                            //Failure due to other errors
                             errorTitle = null;
                             errorMessage = getString(R.string.server_error);
                         }
@@ -176,5 +192,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }).show();
         }
+    }
+
+    private void showNoConnectionMessage(){
+        new AlertDialog.Builder(this).setTitle(getString(R.string.no_internet)).setMessage(getString(R.string.no_internet_message)).setPositiveButton(R.string.retry, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                if (NetworkUtils.isInternetConnected(MainActivity.this)){
+                    logOut();
+                }else{
+                    showNoConnectionMessage();
+                }
+            }
+        }).setCancelable(false).show();
     }
 }

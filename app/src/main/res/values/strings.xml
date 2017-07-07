@@ -80,7 +80,7 @@
     <string name="status">Status:</string>
     <string name="receive_rake">Receive Rake</string>
     <string name="login_failed">Login failed! Please check your internet connection or try again later.</string>
-    <string name="attempting_login">Attempting login&#8230; please wait!</string>
+    <string name="attempting_login">Logging in&#8230; please wait!</string>
     <string name="shared_preferences">SharedPreferences</string>
     <string name="logged_in">loggedIn</string>
     <string name="service_id">serviceID</string>
@@ -93,4 +93,5 @@
     <string name="cannot_connect">Cannot connect to server</string>
     <string name="connection_failed">Please check your internet connection or try again later.</string>
     <string name="server_error">An error occurred while connecting to the server.</string>
+    <string name="loading_trains">Loading Trains&#8230; please wait!</string>
 </resources>

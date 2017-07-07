@@ -12,7 +12,7 @@ import java.util.List;
 
 import in.org.cris.icms.R;
 import in.org.cris.icms.activities.ConsistActivity;
-import in.org.cris.icms.models.Train;
+import in.org.cris.icms.models.consistverification.Train;
 
 /**
  * Created by anurag on 20/6/17.
@@ -35,12 +35,12 @@ public class TrainsAdapter extends RecyclerView.Adapter<TrainsAdapter.TrainsView
     @Override
     public void onBindViewHolder(TrainsViewHolder holder, int position) {
         Train train = trainsList.get(position);
-        holder.trainNo.setText(train.getTrainNo()+"");
+        holder.trainNo.setText(train.getTrainNo());
         holder.trainName.setText(train.getName());
-        holder.arr.setText(train.getArrDate()+" "+train.getArrTime());
+        holder.arr.setText(train.getArrTime());
         holder.source.setText(train.getSource());
         holder.destination.setText(train.getDestination());
-        holder.dep.setText(train.getDepDate()+" "+train.getDepTime());
+        holder.dep.setText(train.getDepTime());
     }
 
     @Override
@@ -74,8 +74,6 @@ public class TrainsAdapter extends RecyclerView.Adapter<TrainsAdapter.TrainsView
             Train train = trainsList.get(getLayoutPosition());
             intent.putExtra("trainNo", train.getTrainNo());
             intent.putExtra("trainName", train.getName());
-            intent.putExtra("depDate", train.getDepDate());
-            intent.putExtra("arrDate", train.getArrDate());
             intent.putExtra("source", train.getSource());
             intent.putExtra("destination", train.getDestination());
             intent.putExtra("arrTime", train.getArrTime());
