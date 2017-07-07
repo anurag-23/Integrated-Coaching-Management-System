@@ -1,12 +1,12 @@
-package in.org.cris.icms.models.login;
+package in.org.cris.icms.models.logout;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by anurag on 5/7/17.
+ * Created by anurag on 6/7/17.
  */
-public class LoginResponse {
+public class LogoutResponse {
     @Expose
     @SerializedName("success")
     private boolean success;
@@ -14,14 +14,6 @@ public class LoginResponse {
     @Expose
     @SerializedName("responseCode")
     private int responseCode;
-
-    @Expose
-    @SerializedName("sessionActiveTime")
-    private String sessionActiveTime;
-
-    @Expose
-    @SerializedName("serviceID")
-    private String serviceID;
 
     @Expose
     @SerializedName("message")
@@ -41,22 +33,6 @@ public class LoginResponse {
 
     public void setResponseCode(int responseCode) {
         this.responseCode = responseCode;
-    }
-
-    public String getSessionActiveTime() {
-        return sessionActiveTime;
-    }
-
-    public void setSessionActiveTime(String sessionActiveTime) {
-        this.sessionActiveTime = sessionActiveTime;
-    }
-
-    public String getServiceID() {
-        return serviceID;
-    }
-
-    public void setServiceID(String serviceID) {
-        this.serviceID = serviceID;
     }
 
     public String getMessage() {

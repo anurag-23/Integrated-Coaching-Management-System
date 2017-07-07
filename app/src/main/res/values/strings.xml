@@ -80,10 +80,17 @@
     <string name="status">Status:</string>
     <string name="receive_rake">Receive Rake</string>
     <string name="login_failed">Login failed! Please check your internet connection or try again later.</string>
-    <string name="attempting_login">Attempting login... please wait!</string>
+    <string name="attempting_login">Attempting login&#8230; please wait!</string>
     <string name="shared_preferences">SharedPreferences</string>
     <string name="logged_in">loggedIn</string>
-    <string name="session_id">sessionID</string>
-    <string name="check_internet_connection">No Connection! Please check your internet connection or try again later.</string>
+    <string name="service_id">serviceID</string>
     <string name="log_out_confirmation">Are you sure you want to log out?</string>
+    <string name="logging_out">Logging out&#8230; please wait!</string>
+    <string name="logout_failed">Log out failed! Please check your internet connection or try again later.</string>
+    <string name="retry">Retry</string>
+    <string name="no_internet">No Internet Connection</string>
+    <string name="no_internet_message">You need to be connected to the internet to use this app.</string>
+    <string name="cannot_connect">Cannot connect to server</string>
+    <string name="connection_failed">Please check your internet connection or try again later.</string>
+    <string name="server_error">An error occurred while connecting to the server.</string>
 </resources>

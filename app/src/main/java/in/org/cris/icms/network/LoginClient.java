@@ -7,6 +7,8 @@ import java.util.Locale;
 import in.org.cris.icms.models.login.LoginRequest;
 import in.org.cris.icms.models.login.LoginResponse;
 import in.org.cris.icms.models.login.User;
+import in.org.cris.icms.models.logout.LogoutRequest;
+import in.org.cris.icms.models.logout.LogoutResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,7 +23,7 @@ import retrofit2.http.POST;
  */
 public class LoginClient {
     private static Retrofit retrofit = null;
-    private static final String BASE_URL = "http://192.168.1.103:8080/LoginApp/";
+    private static final String BASE_URL = "http://192.168.43.208:8080/LoginApp/";
 
     public static LoginInterface getLoginInterface(){
         if (retrofit == null){
@@ -33,5 +35,8 @@ public class LoginClient {
     public interface LoginInterface{
         @POST("login")
         Call<LoginResponse> attemptLogin(@Body LoginRequest request);
+
+        @POST("logout")
+        Call<LogoutResponse> logOut(@Body LogoutRequest request);
     }
 }

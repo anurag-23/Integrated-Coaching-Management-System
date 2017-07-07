@@ -12,6 +12,10 @@ public class LoginRequest {
     private boolean newSession;
 
     @Expose
+    @SerializedName("overwrite")
+    private boolean overwrite;
+
+    @Expose
     @SerializedName("loginTime")
     private String loginTime;
 
@@ -19,12 +23,24 @@ public class LoginRequest {
     @SerializedName("user")
     private User user;
 
+    @Expose
+    @SerializedName("serviceID")
+    private String serviceID;
+
     public boolean isNewSession() {
         return newSession;
     }
 
     public void setNewSession(boolean newSession) {
         this.newSession = newSession;
+    }
+
+    public boolean getOverwriteFlag() {
+        return overwrite;
+    }
+
+    public void setOverwriteFlag(boolean overwrite) {
+        this.overwrite = overwrite;
     }
 
     public String getLoginTime() {
@@ -41,5 +57,13 @@ public class LoginRequest {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getServiceID() {
+        return serviceID;
+    }
+
+    public void setServiceID(String serviceID) {
+        this.serviceID = serviceID;
     }
 }
