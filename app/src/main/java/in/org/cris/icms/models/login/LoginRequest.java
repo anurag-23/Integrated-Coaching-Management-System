@@ -27,6 +27,10 @@ public class LoginRequest {
     @SerializedName("serviceID")
     private String serviceID;
 
+    @Expose
+    @SerializedName("refreshToken")
+    private String refreshToken;
+
     public boolean isNewSession() {
         return newSession;
     }
@@ -65,5 +69,13 @@ public class LoginRequest {
 
     public void setServiceID(String serviceID) {
         this.serviceID = serviceID;
+    }
+
+    public String getRefreshToken() {
+        return refreshToken;
+    }
+
+    public void setRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
     }
 }

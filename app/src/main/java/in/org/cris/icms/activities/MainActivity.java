@@ -4,8 +4,12 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -16,12 +20,19 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 
 import in.org.cris.icms.R;
+import in.org.cris.icms.encryption.Encrypter;
+import in.org.cris.icms.fragments.ImageSelector;
 import in.org.cris.icms.models.logout.LogoutRequest;
 import in.org.cris.icms.models.logout.LogoutResponse;
 import in.org.cris.icms.network.LoginClient;
@@ -31,17 +42,25 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-
     private static final int FAILURE_CODE = 0;
+    private static final int REQUEST_GALLERY = 1;
+    private static final int REQUEST_CAMERA = 2;
+    private SharedPreferences sp;
+    private volatile boolean active;
+    private ImageView profilePicture;
+    private static final String IMAGES_DIRECTORY = "/icms";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        active = true;
+
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         if (getSupportActionBar() != null) getSupportActionBar().setTitle(R.string.app_name);
+
+        sp = getSharedPreferences(getString(R.string.shared_preferences), MODE_PRIVATE);
 
         final DrawerLayout drawerLayout = (DrawerLayout)findViewById(R.id.main_drawer_layout);
         NavigationView navView = (NavigationView)findViewById(R.id.main_nav_view);
@@ -109,16 +128,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TextView userName = (TextView)navView.getHeaderView(0).findViewById(R.id.nav_header_username_text_view);
-        userName.setText(getSharedPreferences(getString(R.string.shared_preferences), MODE_PRIVATE).getString(getString(R.string.username), ""));
+        //Display username in nav view header
+        View headerView = navView.getHeaderView(0);
+        TextView userName = (TextView)headerView.findViewById(R.id.nav_header_username_text_view);
+        userName.setText(sp.getString(getString(R.string.username), ""));
+
+        //Set profile picture in nav view header
+        FrameLayout pictureLayout = (FrameLayout)headerView.findViewById(R.id.nav_header_picture_frame);
+        profilePicture = (ImageView)headerView.findViewById(R.id.nav_header_profile_picture);
+        Bitmap image = loadImage();
+        if (image != null) profilePicture.setImageBitmap(image);
+
+        pictureLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImageSelector.launchImageSelector(getSupportFragmentManager());
+            }
+        });
     }
 
     private void logOut(){
-        final SharedPreferences sp = getSharedPreferences(getString(R.string.shared_preferences), MODE_PRIVATE);
-
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getString(R.string.logging_out));
-        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setCancelable(false);
         progressDialog.show();
 
         //Required parameters for log out request: username, serviceID
@@ -141,17 +173,15 @@ public class MainActivity extends AppCompatActivity {
                         if (response != null && (logoutResponse = response.body()) != null){
                             if (logoutResponse.isSuccess() || logoutResponse.getResponseCode() == FAILURE_CODE){
                                 //Log out if successful
-                                //Logging out in case of failure, as the user is unauthorized
+                                //Log out in case of failure, as the user is unauthorized
                                 SharedPreferences.Editor spEditor = sp.edit();
                                 spEditor.putBoolean(getString(R.string.logged_in), false);
                                 spEditor.remove(getString(R.string.username));
-                                spEditor.remove(getString(R.string.password));
                                 spEditor.remove(getString(R.string.service_id));
+                                spEditor.remove(getString(R.string.refresh_token));
+                                spEditor.remove(getString(R.string.login_time));
                                 spEditor.apply();
-                                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                                startActivity(intent);
-                                overridePendingTransition(R.anim.scale_up_fade_in, R.anim.scale_down_fade_out);
-                                finish();
+                                returnToLoginActivity();
                             }else{
                                 //Show message in case of error
                                 showAlertMessage(null, logoutResponse.getMessage());
@@ -184,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showAlertMessage(String title, String message){
-        if (message != null){
+        if (active && message != null){
             new AlertDialog.Builder(this).setTitle((title == null) ? "" : title).setMessage(message).setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -195,16 +225,93 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showNoConnectionMessage(){
-        new AlertDialog.Builder(this).setTitle(getString(R.string.no_internet)).setMessage(getString(R.string.no_internet_message)).setPositiveButton(R.string.retry, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-                if (NetworkUtils.isInternetConnected(MainActivity.this)){
-                    logOut();
-                }else{
-                    showNoConnectionMessage();
+        if (active){
+            new AlertDialog.Builder(this).setTitle(getString(R.string.no_internet)).setMessage(getString(R.string.no_internet_message)).setPositiveButton(R.string.retry, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                    if (NetworkUtils.isInternetConnected(MainActivity.this)){
+                        logOut();
+                    }else{
+                        showNoConnectionMessage();
+                    }
                 }
+            }).setCancelable(false).show();
+        }
+    }
+
+    private void returnToLoginActivity(){
+        if (active){
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.scale_up_fade_in, R.anim.scale_down_fade_out);
+            finish();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        active = false;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK && data != null){
+            switch (requestCode){
+                case REQUEST_GALLERY:
+                    //Image selected from gallery
+                    try {
+                        Bitmap bm = MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData());
+                        saveImage(bm);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case REQUEST_CAMERA:
+                    //New image clicked
+                    Bitmap thumbnail = (Bitmap)data.getExtras().get("data");
+                    saveImage(thumbnail);
+                    break;
             }
-        }).setCancelable(false).show();
+            //Load and display image
+            Bitmap image = loadImage();
+            if (image != null) profilePicture.setImageBitmap(image);
+        }
+    }
+
+    private Bitmap loadImage(){
+        String username = sp.getString(getString(R.string.username),"");
+        String uri = "file://" + Environment.getExternalStorageDirectory().toString() + IMAGES_DIRECTORY + "/" + Encrypter.generateFileName(username) + ".jpg";
+        try {
+            return MediaStore.Images.Media.getBitmap(getContentResolver(), Uri.parse(uri));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private void saveImage(Bitmap bitmap){
+        String root = Environment.getExternalStorageDirectory().toString();
+        File destination = new File(root + IMAGES_DIRECTORY);
+        //Create directory if it doesn't exist
+        destination.mkdirs();
+
+        String username = sp.getString(getString(R.string.username), "");
+
+        if (!username.equals("")){
+            File file = new File(destination, Encrypter.generateFileName(username)+".jpg");
+            //Delete file if it already exists
+            if (file.exists()) file.delete();
+
+            try {
+                FileOutputStream fo = new FileOutputStream(file);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 90, fo);
+                fo.flush();
+                fo.close();
+            } catch (NullPointerException|IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -102,18 +102,24 @@ public class ConfirmArrivalDialogFragment extends DialogFragment {
             @Override
             public void onClick(View view) {
                 String noneString = getString(R.string.none);
-                if (lineTypeSpinner.getSelectedItem().toString().equals(noneString) || lineSpinner.getSelectedItem().toString().equals(noneString)){
+                if (lineTypeSpinner.getSelectedItem().toString().equals(noneString) || lineSpinner.getSelectedItem().toString().equals(noneString)) {
                     errorMessage.setText(getString(R.string.specify_details));
                     errorMessage.setVisibility(View.VISIBLE);
                 }
-                else if (Integer.parseInt(availableSpace.getText().toString()) < ((ConsistActivity)getActivity()).getCoachCount()){
-                    errorMessage.setText(getString(R.string.no_sufficient_space));
-                    errorMessage.setVisibility(View.VISIBLE);
+                else if (getActivity() instanceof ConfirmArrivalInterface) {
+                    if (Integer.parseInt(availableSpace.getText().toString()) < ((ConfirmArrivalInterface) getActivity()).getCoachCount()) {
+                        errorMessage.setText(getString(R.string.no_sufficient_space));
+                        errorMessage.setVisibility(View.VISIBLE);
+                    }
+                    else{
+                        errorMessage.setVisibility(View.GONE);
+                        dismiss();
+                        ((ConfirmArrivalInterface)getActivity()).confirmArrival();
+                    }
                 }
                 else{
-                    errorMessage.setVisibility(View.GONE);
-                    dismiss();
-                    ((ConsistActivity)getActivity()).confirmArrival();
+                    errorMessage.setText(getString(R.string.error_occured));
+                    errorMessage.setVisibility(View.VISIBLE);
                 }
             }
         });

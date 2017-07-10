@@ -24,6 +24,10 @@ public class LoginResponse {
     private String serviceID;
 
     @Expose
+    @SerializedName("refreshToken")
+    private String refreshToken;
+
+    @Expose
     @SerializedName("message")
     private String message;
 
@@ -57,6 +61,14 @@ public class LoginResponse {
 
     public void setServiceID(String serviceID) {
         this.serviceID = serviceID;
+    }
+
+    public String getRefreshToken() {
+        return refreshToken;
+    }
+
+    public void setRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
     }
 
     public String getMessage() {

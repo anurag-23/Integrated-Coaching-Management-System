@@ -94,4 +94,10 @@
     <string name="connection_failed">Please check your internet connection or try again later.</string>
     <string name="server_error">An error occurred while connecting to the server.</string>
     <string name="loading_trains">Loading Trains&#8230; please wait!</string>
+    <string name="select_picture">Select Picture:</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="refresh_token">refreshToken</string>
+    <string name="login_time">loginTime</string>
+    <string name="error_occured">An error has occured. Please try again later.</string>
 </resources>

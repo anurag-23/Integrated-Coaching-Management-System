@@ -33,7 +33,9 @@ public class ConsistActivity extends AppCompatActivity implements ConfirmArrival
         Toolbar toolbar = (Toolbar)findViewById(R.id.consist_toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null){
-            getSupportActionBar().setTitle(getIntent().getStringExtra("trainName"));
+            String title = getIntent().getStringExtra("trainNo")+" - "+getIntent().getStringExtra("trainName");
+            getSupportActionBar().setTitle(title);
+            getSupportActionBar().setSubtitle(getIntent().getStringExtra("arrTime"));
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
