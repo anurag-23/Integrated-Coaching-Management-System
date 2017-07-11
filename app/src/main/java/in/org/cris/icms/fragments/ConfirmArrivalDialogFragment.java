@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import in.org.cris.icms.R;
-import in.org.cris.icms.activities.ConsistActivity;
 import in.org.cris.icms.models.LineType;
 
 /**
@@ -118,7 +117,7 @@ public class ConfirmArrivalDialogFragment extends DialogFragment {
                     }
                 }
                 else{
-                    errorMessage.setText(getString(R.string.error_occured));
+                    errorMessage.setText(getString(R.string.error_occurred));
                     errorMessage.setVisibility(View.VISIBLE);
                 }
             }

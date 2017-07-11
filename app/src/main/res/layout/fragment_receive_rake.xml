@@ -2,8 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="3dp"
-    android:paddingBottom="3dp"
     android:clipChildren="false"
     android:clipToPadding="false"
     tools:context="in.org.cris.icms.fragments.SendRakeFragment">

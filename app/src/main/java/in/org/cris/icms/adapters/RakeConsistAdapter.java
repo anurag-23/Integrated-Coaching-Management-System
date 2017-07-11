@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import in.org.cris.icms.R;
-import in.org.cris.icms.models.Coach;
+import in.org.cris.icms.models.consistverification.Coach;
 
 /**
  * Created by anurag on 23/6/17.

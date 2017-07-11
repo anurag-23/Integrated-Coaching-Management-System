@@ -76,10 +76,11 @@ public class TrainsAdapter extends RecyclerView.Adapter<TrainsAdapter.TrainsView
             intent.putExtra("trainName", train.getName());
             intent.putExtra("source", train.getSource());
             intent.putExtra("destination", train.getDestination());
+            intent.putExtra("startDate", train.getStartDate());
             intent.putExtra("arrTime", train.getArrTime());
             intent.putExtra("depTime", train.getDepTime());
             activity.startActivity(intent);
-            activity.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            activity.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_diagonal);
         }
     }
 }

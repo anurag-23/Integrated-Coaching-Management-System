@@ -99,5 +99,7 @@
     <string name="gallery">Gallery</string>
     <string name="refresh_token">refreshToken</string>
     <string name="login_time">loginTime</string>
-    <string name="error_occured">An error has occured. Please try again later.</string>
+    <string name="error_occurred">An error has occurred. Please try again later.</string>
+    <string name="line_details">Line Details</string>
+    <string name="loading_consist">Loading Consist&#8230; please wait!</string>
 </resources>

@@ -14,7 +14,7 @@ import java.util.List;
 
 import in.org.cris.icms.R;
 import in.org.cris.icms.fragments.ShopMarkingDialogFragment;
-import in.org.cris.icms.models.Coach;
+import in.org.cris.icms.models.shopmarking.Coach;
 
 /**
  * Created by anurag on 27/6/17.

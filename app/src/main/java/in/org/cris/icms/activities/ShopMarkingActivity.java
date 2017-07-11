@@ -20,7 +20,7 @@ import java.util.List;
 import in.org.cris.icms.R;
 import in.org.cris.icms.adapters.ShopMarkCoachAdapter;
 import in.org.cris.icms.fragments.ShopMarkingDialogFragment;
-import in.org.cris.icms.models.Coach;
+import in.org.cris.icms.models.shopmarking.Coach;
 
 public class ShopMarkingActivity extends AppCompatActivity implements ShopMarkingDialogFragment.ConfirmShopMarking {
     private String[] ownRlys = {"None", "CR", "NR", "SR", "ER", "WR"};
@@ -114,7 +114,7 @@ public class ShopMarkingActivity extends AppCompatActivity implements ShopMarkin
     @Override
     public void onBackPressed() {
         finish();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        overridePendingTransition(R.anim.scale_up, R.anim.slide_out_right);
     }
 
     @Override

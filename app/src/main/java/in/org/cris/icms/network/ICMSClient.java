@@ -1,10 +1,13 @@
 package in.org.cris.icms.network;
 
+import in.org.cris.icms.models.consistverification.Coach;
+import in.org.cris.icms.models.consistverification.Consist;
 import in.org.cris.icms.models.consistverification.Trains;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  * Created by anurag on 7/7/17.
@@ -21,7 +24,10 @@ public class ICMSClient {
     }
 
     public interface ICMSInterface{
-        @POST("AppServices?service=CV")
-        Call<Trains> getTrains();
+        @POST("AppServices")
+        Call<Trains> getTrains(@Query("service") String service, @Query("type") String type);
+
+        @POST("AppServices")
+        Call<Consist> getConsist(@Query("service") String service, @Query("type") String type, @Query("TrainNo") String trainNo, @Query("trnStDt") String startDate);
     }
 }

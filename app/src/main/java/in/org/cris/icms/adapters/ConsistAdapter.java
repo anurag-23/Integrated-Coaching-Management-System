@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import in.org.cris.icms.R;
-import in.org.cris.icms.models.Coach;
+import in.org.cris.icms.models.consistverification.Coach;
 
 /**
  * Created by anurag on 20/6/17.
@@ -34,11 +34,14 @@ public class ConsistAdapter extends RecyclerView.Adapter<ConsistAdapter.ConsistV
     @Override
     public void onBindViewHolder(ConsistViewHolder holder, int position) {
         Coach coach = coachList.get(position);
-        holder.serialNo.setText(coach.getSerialNo()+"");
+        holder.serialNo.setText(coach.getSerialNo());
         holder.coachInfo.setText(coach.getOwnRly()+" - "+coach.getCoachType()+" - "+coach.getCoachNo());
         holder.from.setText(coach.getFrom());
         holder.to.setText(coach.getTo());
-        holder.remark.setText(coach.getRemark());
+        if (coach.getRemark() != null && !coach.getRemark().equals(""))
+            holder.remark.setText(coach.getRemark());
+        else
+            holder.remark.setText("-");
         holder.prsID.setText(coach.getPrsID());
     }
 

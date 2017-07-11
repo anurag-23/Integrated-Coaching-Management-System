@@ -81,7 +81,7 @@ public class RakeAdapter extends RecyclerView.Adapter<RakeAdapter.RakeViewHolder
             intent.putExtra("trainName", rakeList.get(getLayoutPosition()).getTrainName());
             intent.putExtra("startDate", rakeList.get(getLayoutPosition()).getStartDate());
             activity.startActivity(intent);
-            activity.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            activity.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_diagonal);
         }
     }
 }

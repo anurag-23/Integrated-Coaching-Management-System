@@ -13,12 +13,22 @@
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_type"
+            android:alpha="0.54"
+            android:tint="@color/white"
+            android:layout_marginRight="32dp"
+            android:layout_marginEnd="32dp"/>
+
         <TextView
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/line_type"
             android:textSize="@dimen/typography_title"
+            android:textColor="@color/white"
             android:fontFamily="sans-serif-medium"/>
 
         <Spinner
@@ -35,6 +45,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical">
+        
+        <ImageView
+            android:layout_weight="0"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_track"
+            android:tint="@color/white"
+            android:alpha="0.54"
+            android:layout_marginRight="32dp"
+            android:layout_marginEnd="32dp"/>
 
         <TextView
             android:layout_weight="1"
@@ -42,6 +62,7 @@
             android:layout_height="wrap_content"
             android:text="@string/line"
             android:textSize="@dimen/typography_title"
+            android:textColor="@color/white"
             android:fontFamily="sans-serif-medium"/>
 
         <Spinner
@@ -59,12 +80,22 @@
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_end"
+            android:tint="@color/white"
+            android:alpha="0.54"
+            android:layout_marginRight="32dp"
+            android:layout_marginEnd="32dp"/>
+
         <TextView
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/end"
             android:textSize="@dimen/typography_title"
+            android:textColor="@color/white"
             android:fontFamily="sans-serif-medium"/>
 
         <Spinner
@@ -79,21 +110,49 @@
     <LinearLayout
         android:layout_marginTop="4dp"
         android:id="@+id/line_info"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_details"
+                android:tint="@color/white"
+                android:alpha="0.54"
+                android:layout_marginRight="32dp"
+                android:layout_marginEnd="32dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/line_details"
+                android:textSize="@dimen/typography_title"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-medium"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="56dp"
+            android:layout_marginLeft="56dp">
 
             <TextView
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="@dimen/typography_subheading"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/capacity"/>
 
@@ -102,22 +161,24 @@
                 android:layout_weight="0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="@dimen/typography_subheading"
                 android:text="@string/hyphen"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginStart="56dp"
+            android:layout_marginLeft="56dp">
 
             <TextView
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="@dimen/typography_subheading"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/coaches_on_line"/>
 
@@ -126,23 +187,25 @@
                 android:layout_weight="0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="@dimen/typography_subheading"
                 android:text="@string/hyphen"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginLeft="56dp">
 
             <TextView
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="@dimen/typography_subheading"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/available_space"/>
 
@@ -151,7 +214,7 @@
                 android:layout_weight="0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textSize="@dimen/typography_subheading"
                 android:text="@string/hyphen"/>
 
         </LinearLayout>

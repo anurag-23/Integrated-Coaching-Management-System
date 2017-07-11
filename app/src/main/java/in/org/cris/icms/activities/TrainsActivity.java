@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 
 import java.net.ConnectException;
@@ -30,6 +29,8 @@ public class TrainsActivity extends AppCompatActivity {
     private List<Train> trainsList = new ArrayList<>();
     private TrainsAdapter adapter;
     private volatile boolean active;
+    private static final String PARAMETER_SERVICE = "CV";
+    private static final String PARAMETER_TYPE = "main";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,11 +64,10 @@ public class TrainsActivity extends AppCompatActivity {
         progressDialog.show();
 
         //Calls Trains Service using Retrofit
-        Call<Trains> call = ICMSClient.getICMSInterface().getTrains();
+        Call<Trains> call = ICMSClient.getICMSInterface().getTrains(PARAMETER_SERVICE, PARAMETER_TYPE);
         call.enqueue(new Callback<Trains>() {
             @Override
             public void onResponse(Call<Trains> call, Response<Trains> response) {
-                if (progressDialog.isShowing()) progressDialog.dismiss();
                 Trains trains;
                 if (response != null && (trains = response.body()) != null){
                     if (trains.getAlertMessage().equals("")){
@@ -75,7 +75,9 @@ public class TrainsActivity extends AppCompatActivity {
                         trainsList.clear();
                         trainsList.addAll(trains.getTrains());
                         adapter.notifyDataSetChanged();
+                        if (progressDialog.isShowing()) progressDialog.dismiss();
                     }else{
+                        if (progressDialog.isShowing()) progressDialog.dismiss();
                         showRetryAlertMessage(null, trains.getAlertMessage());
                     }
                 }else{
@@ -133,7 +135,7 @@ public class TrainsActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        overridePendingTransition(R.anim.scale_up, R.anim.slide_out_right);
     }
 
     @Override

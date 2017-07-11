@@ -1,10 +1,13 @@
-package in.org.cris.icms.models;
+package in.org.cris.icms.models.shopmarking;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by anurag on 20/6/17.
+ * Created by anurag on 11/7/17.
  */
 public class Coach {
-    private int serialNo;
+    private String serialNo;
     private String ownRly;
     private String coachType;
     private String coachNo;
@@ -17,11 +20,11 @@ public class Coach {
     private String pohYear;
     private String pohMonth;
 
-    public int getSerialNo() {
+    public String getSerialNo() {
         return serialNo;
     }
 
-    public void setSerialNo(int serialNo) {
+    public void setSerialNo(String serialNo) {
         this.serialNo = serialNo;
     }
 

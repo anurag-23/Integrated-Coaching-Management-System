@@ -54,7 +54,17 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingTop="4dp"
-                        android:paddingBottom="2dp">
+                        android:paddingBottom="2dp"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_station"
+                            android:tint="@color/white"
+                            android:alpha="0.54"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginRight="32dp"/>
 
                         <TextView
                             android:layout_weight="1"
@@ -79,7 +89,17 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingTop="2dp"
-                        android:paddingBottom="4dp">
+                        android:paddingBottom="4dp"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_coach"
+                            android:tint="@color/white"
+                            android:alpha="0.54"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginEnd="32dp"/>
 
                         <TextView
                             android:layout_weight="1"
@@ -131,7 +151,7 @@
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/shop_marking_recycler_view"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 

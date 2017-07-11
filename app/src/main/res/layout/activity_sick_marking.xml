@@ -52,7 +52,17 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingTop="8dp"
-                        android:paddingBottom="4dp">
+                        android:paddingBottom="4dp"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_station"
+                            android:tint="@color/white"
+                            android:alpha="0.54"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginEnd="32dp"/>
 
                         <TextView
                             android:layout_weight="1"
@@ -77,7 +87,17 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingTop="4dp"
-                        android:paddingBottom="4dp">
+                        android:paddingBottom="4dp"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_coach"
+                            android:tint="@color/white"
+                            android:alpha="0.54"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginEnd="32dp"/>
 
                         <TextView
                             android:layout_weight="1"
@@ -102,7 +122,17 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingTop="4dp"
-                        android:paddingBottom="8dp">
+                        android:paddingBottom="8dp"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_coach_no"
+                            android:tint="@color/white"
+                            android:alpha="0.54"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginRight="32dp"/>
 
                         <TextView
                             android:layout_weight="1"
@@ -146,7 +176,17 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingTop="16dp"
-                        android:paddingBottom="8dp">
+                        android:paddingBottom="8dp"
+                        android:gravity="center_horizontal">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_status"
+                            android:tint="@color/white"
+                            android:alpha="0.54"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginEnd="32dp"/>
 
                         <TextView
                             android:layout_weight="1"
@@ -172,7 +212,17 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingTop="8dp"
-                        android:paddingBottom="8dp">
+                        android:paddingBottom="8dp"
+                        android:gravity="center_horizontal">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_details"
+                            android:tint="@color/white"
+                            android:alpha="0.54"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginEnd="32dp"/>
 
                         <TextView
                             android:layout_weight="1"
@@ -198,7 +248,17 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingTop="8dp"
-                        android:paddingBottom="8dp">
+                        android:paddingBottom="8dp"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_date"
+                            android:tint="@color/white"
+                            android:alpha="0.54"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginEnd="32dp"/>
 
                         <TextView
                             android:layout_weight="1"
@@ -224,7 +284,17 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingTop="8dp"
-                        android:paddingBottom="16dp">
+                        android:paddingBottom="16dp"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_time"
+                            android:tint="@color/white"
+                            android:alpha="0.54"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginEnd="32dp"/>
 
                         <TextView
                             android:layout_weight="1"
@@ -268,7 +338,17 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingTop="8dp"
-                        android:paddingBottom="4dp">
+                        android:paddingBottom="4dp"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_sick"
+                            android:tint="@color/white"
+                            android:alpha="0.54"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginEnd="32dp"/>
 
                         <TextView
                             android:layout_weight="1"
@@ -293,7 +373,17 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingTop="4dp"
-                        android:paddingBottom="16dp">
+                        android:paddingBottom="16dp"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_date_2"
+                            android:tint="@color/white"
+                            android:alpha="0.54"
+                            android:layout_marginRight="32dp"
+                            android:layout_marginEnd="32dp"/>
 
                         <TextView
                             android:layout_weight="1"

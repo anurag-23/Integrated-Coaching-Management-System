@@ -31,7 +31,7 @@ import java.util.Locale;
 
 import in.org.cris.icms.R;
 import in.org.cris.icms.adapters.RakeConsistAdapter;
-import in.org.cris.icms.models.Coach;
+import in.org.cris.icms.models.consistverification.Coach;
 
 public class SendRakeActivity extends AppCompatActivity {
     private List<Coach> coachList = new ArrayList<>();
@@ -218,7 +218,7 @@ public class SendRakeActivity extends AppCompatActivity {
 
         for (int i=0; i<15; i++){
             Coach coach = new Coach();
-            coach.setSerialNo(i+1);
+            coach.setSerialNo(i+1+"");
             coach.setCoachNo(12580+i+"");
             coach.setCoachType("HA");
             coach.setFrom(getIntent().getStringExtra("source"));
@@ -257,6 +257,6 @@ public class SendRakeActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         finish();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        overridePendingTransition(R.anim.scale_up, R.anim.slide_out_right);
     }
 }

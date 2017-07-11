@@ -22,8 +22,7 @@ import java.util.List;
 
 import in.org.cris.icms.R;
 import in.org.cris.icms.adapters.RakeConsistAdapter;
-import in.org.cris.icms.models.Coach;
-import in.org.cris.icms.models.LineType;
+import in.org.cris.icms.models.consistverification.Coach;
 
 /**
  * Created by anurag on 2/7/17.
@@ -108,7 +107,7 @@ public class ReceiveRakeActivity extends AppCompatActivity {
 
         for (int i=0; i<15; i++){
             Coach coach = new Coach();
-            coach.setSerialNo(i+1);
+            coach.setSerialNo(i+1+"");
             coach.setCoachNo(12580+i+"");
             coach.setCoachType("HA");
             coach.setFrom(getIntent().getStringExtra("source"));
@@ -196,7 +195,7 @@ public class ReceiveRakeActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         finish();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        overridePendingTransition(R.anim.scale_up, R.anim.slide_out_right);
     }
 
     private void populateLineSpinner(){
