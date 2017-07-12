@@ -78,7 +78,8 @@
                             android:id="@+id/sick_own_rly_spinner"
                             android:gravity="end|right"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:spinnerMode="dialog"/>
 
                     </LinearLayout>
 
@@ -113,7 +114,8 @@
                             android:id="@+id/sick_coach_type_spinner"
                             android:gravity="end|right"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:spinnerMode="dialog"/>
 
                     </LinearLayout>
 
@@ -148,7 +150,8 @@
                             android:id="@+id/sick_coach_no_spinner"
                             android:gravity="end|right"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:spinnerMode="dialog"/>
 
                     </LinearLayout>
 
@@ -364,7 +367,8 @@
                             android:id="@+id/sick_department_spinner"
                             android:gravity="end|right"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:spinnerMode="dialog"/>
 
                     </LinearLayout>
 

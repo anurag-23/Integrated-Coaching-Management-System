@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.util.List;
@@ -41,7 +42,12 @@ public class ConsistAdapter extends RecyclerView.Adapter<ConsistAdapter.ConsistV
         if (coach.getRemark() != null && !coach.getRemark().equals(""))
             holder.remark.setText(coach.getRemark());
         else
-            holder.remark.setText("-");
+            holder.remark.setText("--");
+        if (coach.isDispute())
+            holder.dispute.setChecked(true);
+        else
+            holder.dispute.setChecked(false);
+
         holder.prsID.setText(coach.getPrsID());
     }
 
@@ -50,7 +56,7 @@ public class ConsistAdapter extends RecyclerView.Adapter<ConsistAdapter.ConsistV
         return coachList.size();
     }
 
-    class ConsistViewHolder extends RecyclerView.ViewHolder {
+    class ConsistViewHolder extends RecyclerView.ViewHolder implements CheckBox.OnCheckedChangeListener {
         TextView serialNo;
         TextView coachInfo;
         TextView from;
@@ -69,6 +75,12 @@ public class ConsistAdapter extends RecyclerView.Adapter<ConsistAdapter.ConsistV
             prsID = (TextView)itemView.findViewById(R.id.prs_id_text_view);
             remark = (TextView)itemView.findViewById(R.id.remark_text_view);
             dispute = (CheckBox)itemView.findViewById(R.id.dispute_checkbox);
+            dispute.setOnCheckedChangeListener(this);
+        }
+
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+            coachList.get(getLayoutPosition()).setDispute(b);
         }
     }
 }

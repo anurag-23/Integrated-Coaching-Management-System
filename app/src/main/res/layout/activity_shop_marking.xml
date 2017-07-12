@@ -80,7 +80,8 @@
                             android:id="@+id/shop_own_rly_spinner"
                             android:gravity="end|right"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:spinnerMode="dialog"/>
 
                     </LinearLayout>
 
@@ -115,7 +116,8 @@
                             android:id="@+id/shop_coach_type_spinner"
                             android:gravity="end|right"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:spinnerMode="dialog"/>
 
                     </LinearLayout>
 

@@ -79,6 +79,8 @@ public class Coach {
     @SerializedName("cId")
     private int coachID;
 
+    private boolean dispute;
+
     public String getSerialNo() {
         return serialNo;
     }
@@ -221,5 +223,13 @@ public class Coach {
 
     public void setCoachID(int coachID) {
         this.coachID = coachID;
+    }
+
+    public boolean isDispute() {
+        return dispute;
+    }
+
+    public void setDispute(boolean dispute) {
+        this.dispute = dispute;
     }
 }

@@ -1,23 +1,29 @@
 package in.org.cris.icms.activities;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -45,10 +51,11 @@ public class MainActivity extends AppCompatActivity {
     private static final int FAILURE_CODE = 0;
     private static final int REQUEST_GALLERY = 1;
     private static final int REQUEST_CAMERA = 2;
+    private static final String IMAGES_DIRECTORY = "/ICMS/Media/Images";
+    private static final int REQUEST_WRITE_PERMISSION = 786;
     private SharedPreferences sp;
     private volatile boolean active;
     private ImageView profilePicture;
-    private static final String IMAGES_DIRECTORY = "/ICMS/Media/Images";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,7 +149,12 @@ public class MainActivity extends AppCompatActivity {
         pictureLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImageSelector.launchImageSelector(getSupportFragmentManager());
+                //Request WRITE_EXTERNAL_STORAGE permission at runtime for Android 6.0+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_PERMISSION);
+                }else{
+                    ImageSelector.launchImageSelector(getSupportFragmentManager());
+                }
             }
         });
     }
@@ -282,7 +294,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Bitmap loadImage(){
         String username = sp.getString(getString(R.string.username),"");
-        String uri = "file://" + Environment.getExternalStorageDirectory().toString() + IMAGES_DIRECTORY + "/" + Encrypter.generateFileName(username) + ".jpg";
+        String uri = "file://" + Environment.getExternalStorageDirectory().toString() + IMAGES_DIRECTORY + "/" + Encrypter.generateFileName(username) + ".png";
         try {
             return MediaStore.Images.Media.getBitmap(getContentResolver(), Uri.parse(uri));
         } catch (IOException e) {
@@ -300,13 +312,26 @@ public class MainActivity extends AppCompatActivity {
         String username = sp.getString(getString(R.string.username), "");
 
         if (!username.equals("")){
-            File file = new File(destination, Encrypter.generateFileName(username)+".jpg");
+            File file = new File(destination, Encrypter.generateFileName(username)+".png");
             //Delete file if it already exists
             if (file.exists()) file.delete();
 
             try {
                 FileOutputStream fo = new FileOutputStream(file);
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 90, fo);
+                double height = bitmap.getHeight();
+                double width = bitmap.getWidth();
+
+                //Scale bitmap
+                if (height > 512){
+                    width = 512/(height/width);
+                    height = 512;
+                }else if (width >512){
+                    height = 512*(height/width);
+                    width = 512;
+                }
+                bitmap = Bitmap.createScaledBitmap(bitmap, (int)width, (int)height, false);
+
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, fo);
                 fo.flush();
                 fo.close();
             } catch (NullPointerException|IOException e) {

@@ -105,7 +105,8 @@
             android:gravity="end|right"
             android:id="@+id/station_yard_spinner"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:spinnerMode="dialog"/>
 
     </LinearLayout>
 
