@@ -6,15 +6,15 @@ import java.util.List;
  * Created by anurag on 22/6/17.
  */
 public class LineType {
-    private String type;
+    private String lineType;
     private List<String> linesList;
 
-    public String getType() {
-        return type;
+    public String getLineType() {
+        return lineType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setLineType(String lineType) {
+        this.lineType = lineType;
     }
 
     public List<String> getLinesList() {

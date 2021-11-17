@@ -29,6 +29,10 @@ public class Consist {
     @SerializedName("CoachList")
     private List<Coach> coachList;
 
+    @Expose
+    @SerializedName("LineTypeList")
+    private List<LineType> lineTypeList;
+
     public String getTrainNo() {
         return trainNo;
     }
@@ -67,5 +71,13 @@ public class Consist {
 
     public void setCoachList(List<Coach> coachList) {
         this.coachList = coachList;
+    }
+
+    public List<LineType> getLineTypeList() {
+        return lineTypeList;
+    }
+
+    public void setLineTypeList(List<LineType> lineTypeList) {
+        this.lineTypeList = lineTypeList;
     }
 }

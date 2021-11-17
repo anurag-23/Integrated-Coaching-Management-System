@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -25,7 +24,7 @@ import in.org.cris.icms.R;
 import in.org.cris.icms.models.login.LoginRequest;
 import in.org.cris.icms.models.login.LoginResponse;
 import in.org.cris.icms.models.login.User;
-import in.org.cris.icms.network.LoginClient;
+import in.org.cris.icms.network.ICMSClient;
 import in.org.cris.icms.network.NetworkUtils;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -143,7 +142,7 @@ public class LoginActivity extends AppCompatActivity {
         if (loginRequest.isNewSession()) progressDialog.show(); //Shows progress dialog only in case of manual login
 
         //Calls login service using Retrofit
-        Call<LoginResponse> call = LoginClient.getLoginInterface().attemptLogin(loginRequest);
+        Call<LoginResponse> call = ICMSClient.getICMSInterface().attemptLogin(loginRequest);
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {

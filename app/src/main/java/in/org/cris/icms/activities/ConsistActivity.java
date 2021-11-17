@@ -24,7 +24,6 @@ import in.org.cris.icms.adapters.ConsistAdapter;
 import in.org.cris.icms.fragments.ConfirmArrivalDialogFragment;
 import in.org.cris.icms.models.consistverification.Coach;
 import in.org.cris.icms.models.consistverification.Consist;
-import in.org.cris.icms.models.consistverification.Trains;
 import in.org.cris.icms.network.ICMSClient;
 import in.org.cris.icms.network.NetworkUtils;
 import retrofit2.Call;
@@ -72,7 +71,6 @@ public class ConsistActivity extends AppCompatActivity implements ConfirmArrival
                 ConfirmArrivalDialogFragment dialog = ConfirmArrivalDialogFragment.createInstance();
                 dialog.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
                 dialog.show(getSupportFragmentManager(), getString(R.string.confirm_arrival));
-
             }
         });
 

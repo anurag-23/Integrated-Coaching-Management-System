@@ -137,7 +137,7 @@ public class ConfirmArrivalDialogFragment extends DialogFragment {
         //initialising dummy data
         for (String l : lineTypesArray){
             LineType newLineType = new LineType();
-            newLineType.setType(l);
+            newLineType.setLineType(l);
             List<String> linesList = new ArrayList<>();
 
             for (int j=0; j<5; j++){
@@ -152,7 +152,7 @@ public class ConfirmArrivalDialogFragment extends DialogFragment {
         lineStrings.add(getString(R.string.none));
 
         for (LineType lt : lineTypesList){
-            lineTypeStrings.add(lt.getType());
+            lineTypeStrings.add(lt.getLineType());
         }
 
         lineTypeSpinner.setAdapter(new ArrayAdapter<>(getContext(), R.layout.item_custom_spinner, lineTypeStrings));

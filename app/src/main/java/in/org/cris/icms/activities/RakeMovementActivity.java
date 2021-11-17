@@ -29,7 +29,7 @@ public class RakeMovementActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             toolbar.setElevation(0);
             appBarLayout.setElevation(0);
-            appBarLayout.setTargetElevation(0);
+            appBarLayout.setTargetElevation(0); //workaround; Shows deprecated but is necessary for removing elevation on toolbar
         }
 
         setSupportActionBar(toolbar);

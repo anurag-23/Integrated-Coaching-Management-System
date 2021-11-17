@@ -23,7 +23,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -41,7 +40,7 @@ import in.org.cris.icms.encryption.Encrypter;
 import in.org.cris.icms.fragments.ImageSelector;
 import in.org.cris.icms.models.logout.LogoutRequest;
 import in.org.cris.icms.models.logout.LogoutResponse;
-import in.org.cris.icms.network.LoginClient;
+import in.org.cris.icms.network.ICMSClient;
 import in.org.cris.icms.network.NetworkUtils;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -175,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //Calls logout service using Retrofit
-                Call<LogoutResponse> call = LoginClient.getLoginInterface().logOut(logoutRequest);
+                Call<LogoutResponse> call = ICMSClient.getICMSInterface().logOut(logoutRequest);
                 call.enqueue(new Callback<LogoutResponse>() {
                     @Override
                     public void onResponse(Call<LogoutResponse> call, Response<LogoutResponse> response) {
